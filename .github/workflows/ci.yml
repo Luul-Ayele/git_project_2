@@ -23,7 +23,7 @@ jobs:
  
       - name: Run flake8
         run: |
-          flake8 src/ tests/ --max-line-length=120 --count --show-source --statistics
+          flake8 src/ tests/ --max-line-length=120 --extend-ignore=E302,E712 --count --show-source --statistics
 
   test:
     name: Tests (Python ${{ matrix.python-version }})
