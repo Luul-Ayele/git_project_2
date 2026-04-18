@@ -1,7 +1,7 @@
 """Tests for calculator operations."""
 import pytest
 from src.calculator import add, subtract, multiply, divide, modulo, power, square_root, factorial
-from src.validator import validate_range, validate_positive, validate_non_negative, validate_integer
+from src.validator import validate_range, validate_positive, validate_non_negative, validate_integer,validate_number,validate_operation
 
 def test_add():
     assert add(2, 3) == 5
@@ -73,3 +73,17 @@ def test_validate_integer():
     assert validate_integer(5) == True
     assert validate_integer(5.0) == True
     assert validate_integer(5.5) == False
+
+def test_validate_number():
+    assert validate_number(5) == True
+    assert validate_number("3.14") == True
+    assert validate_number("abc") == False
+    assert validate_number(None) == False
+
+
+def test_validate_operation():
+    assert validate_operation('+') == True
+    assert validate_operation('-') == True
+    assert validate_operation('*') == True
+    assert validate_operation('/') == True
+    assert validate_operation('%') == False
